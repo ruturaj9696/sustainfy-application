@@ -8,6 +8,7 @@ import listingRouter from './routes/listing.route.js';
 import UserRouter from './routes/user.route.js'
 import adminRouter from './routes/admin.route.js'
 import authRouter from './routes/auth.route.js';
+
 dotenv.config();
 const app = express();
 

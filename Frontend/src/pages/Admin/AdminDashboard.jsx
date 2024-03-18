@@ -8,6 +8,7 @@ import CreateUser from "./UserCRUD/CreateUser";
 import AdminSignout from "./AdminSignout";
 import AccessUser from "./AccessUser";
 import AdminSignIn from "./AdminSignIn";
+import DownloadReport from "./DownloadReport";
 
 const AdminDashboard = () => {
   const [activeComponent, setActiveComponent] = useState("");
@@ -27,6 +28,7 @@ const AdminDashboard = () => {
         {activeComponent === "CreateUser" && <CreateUser />}
         {activeComponent === "AdminSignout" && <AdminSignout />}
         {activeComponent === "userdashboard" && <AccessUser />}
+        {activeComponent === "Downloadreport" && <DownloadReport />}
       </div>
     </div>
   );

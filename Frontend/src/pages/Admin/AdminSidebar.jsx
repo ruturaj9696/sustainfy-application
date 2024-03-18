@@ -64,6 +64,12 @@ const AdminSidebar = ({ onComponentChange }) => {
           </button>
           <button
             className="flex items-center space-x-2"
+            onClick={() => onComponentChange("Downloadreport")}
+          >
+            <FaSignOutAlt className="w-6 h-6" /> <span>Download Report</span>
+          </button>
+          <button
+            className="flex items-center space-x-2"
             onClick={() => onComponentChange("AdminSignout")}
           >
             <FaSignOutAlt className="w-6 h-6" /> <span>Sign Out</span>

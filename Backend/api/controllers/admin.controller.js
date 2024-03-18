@@ -3,6 +3,8 @@
 import Admin from "../models/admin.model.js";
 import { errorHandler } from "../utils/error.js";
 import bcryptjs from "bcryptjs";
+import exportToXLSX from "../Excel/exportToXLSX.js"; // Import your export function
+import fs from "fs";
 
 export const getAllAdmin = async (req, res, next) => {
   try {
@@ -70,3 +72,31 @@ export const deleteAdmin = async (req, res, next) => {
     next(error); // Pass any errors to the error handling middleware
   }
 };
+
+const exportToExcel = async (req, res) => {
+  try {
+    // Call the exportToXLSX function to generate the Excel file
+    await exportToXLSX();
+
+    // Define the path to the generated Excel file
+    const filePath = "C:\\Users\\hp\\OneDrive\\Desktop\\Final Codes\\FinalPVprotechGithub\\Backend\\output.xlsx";
+
+    // Read the Excel file as a stream
+    const fileStream = fs.createReadStream(filePath);
+
+    // Set the appropriate headers for file download
+    res.setHeader(
+      "Content-Type",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    );
+    res.setHeader("Content-Disposition", "attachment; filename=data.xlsx");
+
+    // Pipe the file stream to the response object
+    fileStream.pipe(res);
+  } catch (error) {
+    console.error("Error exporting Excel file:", error);
+    res.status(500).json({ error: "Failed to export Excel file" });
+  }
+};
+
+export { exportToExcel };
