@@ -28,8 +28,8 @@ const DownloadReport = () => {
 
   return (
     <div>
-      <h1>Admin Dashboard</h1>
-      <button onClick={handleDownloadExcel}>Download Excel</button>
+      <h1 className="flex align-middle justify-center bg-slate-950 text-white p-3">Admin Dashboard</h1>
+      <button className="border border-b-gray-700 bg-slate-400 rounded-md p-5 m-2" onClick={handleDownloadExcel}>Download Excel</button>
     </div>
   );
 };

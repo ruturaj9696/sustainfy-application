@@ -13,7 +13,6 @@ import PrivateRoute from "./components/PrivateRoute";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import GetAllUsers from "./pages/Admin/AdminCRUD/GetAllUsers";
 import CreateListing from "./pages/Admin/ListingCRUD/CreateListing";
-import UserProfileDataUpdate from "./pages/Admin/AdminCRUD/UserProfileDataUpdate";
 
 const App = () => {
   // Initialize theme state, default to "light"
@@ -63,12 +62,12 @@ const App = () => {
           {/* Listing route */}
 
           {/* Admin private Routes */}
+
           <Route element={<PrivateRoute />}>
             <Route path="/admin/getallusers" element={<GetAllUsers />} />
             <Route path="/admin/admindashboard" element={<AdminDashboard />} />
             <Route path="/createlisting" element={<CreateListing />} />
             <Route path="/admin/profile" element={<AdminProfile />} />
-            <Route path="/admin/admindashboard/userdata" element={<UserProfileDataUpdate />} />
           </Route>
         </Routes>
       </Router>
@@ -78,23 +77,24 @@ const App = () => {
 
 export default App;
 
+
 // import React from "react";
-// import CreateUser from "./pages/Admin/UserCRUD/CreateUser";
-// import CrateAdmin from "./pages/Admin/AdminCRUD/CreateAdmin";
-// import UpdateAdmin from "./pages/Admin/AdminCRUD/AdminProfile";
-// import UserProfile from "./pages/Admin/UserCRUD/UserProfile";
-// import AdminProfile from "./pages/Admin/AdminCRUD/AdminProfile";
-// import AdminSignIn from "./pages/Admin/AdminSignIn";
-// import UserSignIn from "./pages/User/UserSignIn";
-// import GetAllUsers from "./pages/Admin/AdminCRUD/GetAllUsers";
-// import PlantInfo from "./pages/User/PlantInfo";
-// import GetAllAdmins from "./pages/Admin/AdminCRUD/GetAllAdmins";
-// import Carousel from "./components/Carousel";
-// import Home from "./pages/Home";
+// // import CreateUser from "./pages/Admin/UserCRUD/CreateUser";
+// // import CrateAdmin from "./pages/Admin/AdminCRUD/CreateAdmin";
+// // import UpdateAdmin from "./pages/Admin/AdminCRUD/AdminProfile";
+// // import UserProfile from "./pages/Admin/UserCRUD/UserProfile";
+// // import AdminProfile from "./pages/Admin/AdminCRUD/AdminProfile";
+// // import AdminSignIn from "./pages/Admin/AdminSignIn";
+// // import UserSignIn from "./pages/User/UserSignIn";
+// // import GetAllUsers from "./pages/Admin/AdminCRUD/GetAllUsers";
+// // import PlantInfo from "./pages/User/PlantInfo";
+// // import GetAllAdmins from "./pages/Admin/AdminCRUD/GetAllAdmins";
+// // import Carousel from "./components/Carousel";
+// // import Home from "./pages/Home";
+// // import AdminDashboard from "./pages/Admin/AdminDashboard";
+// // import AdminSidebar from "./pages/Admin/AdminSidebar";
+// // import PowerGeneration from "./pages/Graphs/PowerGeneration";
 // import CreateListing from "./pages/Admin/ListingCRUD/CreateListing";
-// import AdminDashboard from "./pages/Admin/AdminDashboard";
-// import AdminSidebar from "./pages/Admin/AdminSidebar";
-// import PowerGeneration from "./pages/Graphs/PowerGeneration";
 
 // const App = () => {
 //   return (
