@@ -12,7 +12,6 @@ import UserDashboard from "./pages/User/UserDashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import GetAllUsers from "./pages/Admin/AdminCRUD/GetAllUsers";
-import CreateListing from "./pages/Admin/ListingCRUD/CreateListing";
 
 const App = () => {
   // Initialize theme state, default to "light"
@@ -66,7 +65,6 @@ const App = () => {
           <Route element={<PrivateRoute />}>
             <Route path="/admin/getallusers" element={<GetAllUsers />} />
             <Route path="/admin/admindashboard" element={<AdminDashboard />} />
-            <Route path="/createlisting" element={<CreateListing />} />
             <Route path="/admin/profile" element={<AdminProfile />} />
           </Route>
         </Routes>
