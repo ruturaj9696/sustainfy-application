@@ -1,13 +1,13 @@
 //Main Backend code:
 
-import express from 'express';
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import cors from 'cors'; // Import cors package
-import listingRouter from './routes/listing.route.js';
-import UserRouter from './routes/user.route.js'
-import adminRouter from './routes/admin.route.js'
-import authRouter from './routes/auth.route.js';
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import cors from "cors"; // Import cors package
+import listingRouter from "./routes/listing.route.js";
+import UserRouter from "./routes/user.route.js";
+import adminRouter from "./routes/admin.route.js";
+import authRouter from "./routes/auth.route.js";
 
 dotenv.config();
 const app = express();
@@ -18,41 +18,43 @@ app.use(express.json()); // Parse JSON bodies
 // CORS middleware
 app.use(cors());
 
-mongoose.connect(process.env.MONGO, {
+mongoose
+  .connect(process.env.MONGO, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => {
+    useUnifiedTopology: true,
+  })
+  .then(() => {
     console.log("Connected to MongoDB successfully");
-}).catch((err) => {
+  })
+  .catch((err) => {
     console.error("MongoDB connection error:", err);
+  });
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
-});
-
-app.get('/', (req, res) => {
-    res.json({ msg: "Hello World!" });
+app.get("/", (req, res) => {
+  res.json({ msg: "Hello World!" });
 });
 
 // Mount the userListingRouter
-app.use('/api/listing', listingRouter);
-app.use('/api/user',UserRouter );
-app.use('/api/admin', adminRouter);
-app.use('/api/auth', authRouter);
+app.use("/api/listing", listingRouter);
+app.use("/api/user", UserRouter);
+app.use("/api/admin", adminRouter);
+app.use("/api/auth", authRouter);
 
 // Adding middlewate to protect from the errors
 app.use((err, req, res, next) => {
-    const statusCode = err.statusCode || 500;
-    const message = err.message || 'Internal Server Error';
-    return res.status(statusCode).json({
-      success: false,
-      statusCode,
-      message,
-    });
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Internal Server Error";
+  return res.status(statusCode).json({
+    success: false,
+    statusCode,
+    message,
   });
+});
 //Main backend code ends here
-
 
 // // Script to export the mongodb data into excel sheet  using xlsx library and fs for saving it in local system
 // import mongoose from "mongoose";
@@ -203,7 +205,6 @@ app.use((err, req, res, next) => {
 
 // // Call the export function
 // exportToXLSX();
-
 
 // import mongoose from "mongoose";
 // import { google } from "googleapis";
@@ -370,8 +371,7 @@ app.use((err, req, res, next) => {
 //   exportToGoogleSheets(auth);
 // });
 
-
-// This is the code for google sheets 
+// This is the code for google sheets
 // import mongoose from "mongoose";
 // import { GoogleSpreadsheet } from "google-spreadsheet";
 

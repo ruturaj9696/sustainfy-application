@@ -27,7 +27,7 @@ const App = () => {
   useEffect(() => {
     try {
       document.documentElement.setAttribute("data-theme", theme);
-      localStorage.setItem("theme", theme);
+      localStorage.setItem("theme", theme);   
     } catch {
       // Handle errors related to accessing localStorage
     }
@@ -58,10 +58,7 @@ const App = () => {
           {/* Admin Routes */}
           <Route path="admin/signin" element={<AdminSignIn />} />
 
-          {/* Listing route */}
-
           {/* Admin private Routes */}
-
           <Route element={<PrivateRoute />}>
             <Route path="/admin/getallusers" element={<GetAllUsers />} />
             <Route path="/admin/admindashboard" element={<AdminDashboard />} />
@@ -74,7 +71,6 @@ const App = () => {
 };
 
 export default App;
-
 
 // import React from "react";
 // // import CreateUser from "./pages/Admin/UserCRUD/CreateUser";
