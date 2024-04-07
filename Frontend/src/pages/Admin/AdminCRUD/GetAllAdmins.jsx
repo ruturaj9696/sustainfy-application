@@ -7,7 +7,7 @@ const GetAllAdmins = () => {
   useEffect(() => {
     const fetchAdmins = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/admin/getAllAdmin");
+        const response = await axios.get("/api/admin/getAllAdmin");
         setAdmins(response.data);
       } catch (error) {
         console.error("Error fetching admins:", error);

@@ -29,7 +29,7 @@ const CreateUser = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/auth/createuser",
+        "/api/auth/createuser",
         formData
       );
       console.log(response.data);

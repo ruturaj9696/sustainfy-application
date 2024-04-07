@@ -26,7 +26,7 @@ const GetAllUsers = () => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/user/getAllUser"
+          "/api/user/getAllUser"
         );
         setUsers(response.data);
       } catch (error) {
@@ -67,7 +67,7 @@ const GetAllUsers = () => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/user/updateuser/${selectedUser._id}`,
+        `/api/user/updateuser/${selectedUser._id}`,
         formData
       );
       setSuccessMessage(response.data.message);

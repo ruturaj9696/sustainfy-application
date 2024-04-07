@@ -40,43 +40,48 @@ const Navbar = ({ toggleTheme }) => {
       <div className="flex-1"></div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1 gap-3">
-          <li>
-            {/* Wrap the button inside Link and specify the 'to' prop */}
-            <Link to="/admin/signin">
-            {currentAdmin ?(
-              <img
-                  className="rounded-full h-7 w-7 object-cover"
-                  src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"
-                  alt="profile"
-                />
-            ):(
-              <button className="btn btn-outline btn-primary btn-sm">
-                Admin
-              </button>
-
-            )
-
-            }
-            </Link>
-          </li>
-
-          <li>
-            {/* Wrap the button inside Link and specify the 'to' prop */}
-            <Link to="/user/signin">
-              {currentUser ? (
+          {currentUser && (
+            <li>
+              <Link to="/user/userDashboard">
                 <img
                   className="rounded-full h-7 w-7 object-cover"
                   src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"
-                  alt="profile"
+                  alt="user profile"
                 />
-              ) : (
-                <button className="btn btn-outline btn-primary btn-sm">
-                  User
-                </button>
-              )}
-            </Link>
-            {/* If you want to see UserDashboard then login with provided credentials */}
-          </li>
+              </Link>
+            </li>
+          )}
+
+          {currentAdmin && (
+            <li>
+              <Link to="/admin/admindashboard">
+                <img
+                  className="rounded-full h-7 w-7 object-cover"
+                  src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"
+                  alt="admin profile"
+                />
+              </Link>
+            </li>
+          )}
+
+          {!currentUser && !currentAdmin && (
+            <>
+              <li>
+                <Link to="/admin/signin">
+                  <button className="btn btn-outline btn-primary btn-sm">
+                    Admin
+                  </button>
+                </Link>
+              </li>
+              <li>
+                <Link to="/user/signin">
+                  <button className="btn btn-outline btn-primary btn-sm">
+                    User
+                  </button>
+                </Link>
+              </li>
+            </>
+          )}
 
           <li>
             <label className="swap swap-rotate py-3">
