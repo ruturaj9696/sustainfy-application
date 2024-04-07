@@ -16,14 +16,14 @@ const app = express();
 app.use(express.json()); // Parse JSON bodies
 
 // CORS middleware
-// app.use(cors());
-app.use(
-  cors({
-    origin: ["https://deploy-mern-1whq.vercel.app"],
-    methods: ["POST", "GET"],
-    Credential: true,
-  })
-);
+app.use(cors());
+// app.use(
+//   cors({
+//     origin: ["https://deploy-mern-1whq.vercel.app"],
+//     methods: ["POST", "GET"],
+//     Credential: true,
+//   })
+// );
 
 mongoose
   .connect(process.env.MONGO, {
