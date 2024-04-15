@@ -1,10 +1,9 @@
-// admin.controller.js
-
 import Admin from "../models/admin.model.js";
 import { errorHandler } from "../utils/error.js";
 import bcryptjs from "bcryptjs";
 import exportToXLSX from "../Excel/exportToXLSX.js"; // Import your export function
 import fs from "fs";
+import { updateModel } from "../models/dailyupdates.model.js";
 
 export const getAllAdmin = async (req, res, next) => {
   try {
@@ -73,7 +72,7 @@ export const deleteAdmin = async (req, res, next) => {
   }
 };
 
-const exportToExcel = async (req, res) => {
+export const exportToExcel = async (req, res) => {
   try {
     // Call the exportToXLSX function to generate the Excel file
     await exportToXLSX();
@@ -99,4 +98,36 @@ const exportToExcel = async (req, res) => {
   }
 };
 
-export { exportToExcel };
+export const createDailyPost = async (req, res) => {
+  const { date, powergeneration, userRef } = req.body;
+  try {
+      const newDailyPost = await updateModel.create({
+          date,
+          powergeneration,
+          userRef,
+      });
+      res.status(201).json(newDailyPost);
+  } catch (err) {
+      res.status(400).json({ message: err.message });
+  }
+};
+
+
+export const getDailyPost = async (req, res) => {
+  const { id } = req.params;
+  try {
+      const dailyPosts = await updateModel.find({ userRef: id });
+      res.status(200).json(dailyPosts);
+  } catch (err) {
+      res.status(400).json({ message: err.message });
+  }
+};
+
+export const getallDailyPost = async (req, res) => {
+  try {
+      const dailyPosts = await updateModel.find();
+      res.status(200).json(dailyPosts);
+  } catch (err) {
+      res.status(400).json({ message: err.message });
+  }
+};
