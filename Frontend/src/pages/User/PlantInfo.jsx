@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 const PlantInfo = () => {
   const [plantData, setPlantData] = useState(null);
   const { currentUser } = useSelector((state) => state.user);
-  const email=currentUser?.email;
+  const email = currentUser?.email;
 
   useEffect(() => {
     fetch(`http://localhost:3000/api/listing/getonelist/${email}`)
