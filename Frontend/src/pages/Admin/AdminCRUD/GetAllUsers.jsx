@@ -18,7 +18,7 @@ const GetAllUsers = () => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/user/getAllUser"
+          "/api/user/getAllUser"
         );
         setUsers(response.data);
       } catch (error) {
@@ -31,7 +31,34 @@ const GetAllUsers = () => {
 
   const handleRegisterData = (user) => {
     setSelectedUser(user);
+
     handleComponentChange("updateData");
+
+    handleComponentChange("updateUser");
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.put(
+        `/api/user/updateuser/${selectedUser._id}`,
+        formData
+      );
+      setSuccessMessage(response.data.message);
+      alert("Updated Successfully!");
+      setActiveComponent("");
+      setSuccessMessage("")
+    } catch (error) {
+      console.error("Error updating user:", error);
+    }
   };
 
   return (

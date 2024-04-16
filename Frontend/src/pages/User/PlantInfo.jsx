@@ -7,7 +7,7 @@ const PlantInfo = () => {
   const email = currentUser?.email;
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/listing/getonelist/${email}`)
+    fetch(`/api/listing/getonelist/${email}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

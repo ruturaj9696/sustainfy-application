@@ -17,7 +17,7 @@ const UserSignIn = () => {
     try {
       dispatch(signInStart());
       const response = await axios.post(
-        "http://localhost:3000/api/auth/signinuser",
+        "/api/auth/signinuser",
         {
           email,
           password,
