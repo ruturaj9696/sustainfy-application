@@ -29,7 +29,7 @@ const CreateAdmin = () => {
     try {
       // Make a POST request to create admin
       const response = await axios.post(
-        "/api/auth/createadmin",
+        "https://sustainfy-application.onrender.com/api/auth/createadmin",
         formData
       );
       console.log(response.data); // Log the response

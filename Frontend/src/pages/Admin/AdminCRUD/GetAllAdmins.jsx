@@ -7,7 +7,7 @@ const GetAllAdmins = () => {
   useEffect(() => {
     const fetchAdmins = async () => {
       try {
-        const response = await axios.get("/api/admin/getAllAdmin");
+        const response = await axios.get("https://sustainfy-application.onrender.com/api/admin/getAllAdmin");
         setAdmins(response.data);
       } catch (error) {
         console.error("Error fetching admins:", error);

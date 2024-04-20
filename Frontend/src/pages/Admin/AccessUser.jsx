@@ -81,7 +81,7 @@ const AccessUser = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`/api/listing/getonelist/${email}`)
+    fetch(`https://sustainfy-application.onrender.com/api/listing/getonelist/${email}`)
       .then((response) => {
         if (!response.ok) {
           // throw new Error("Network response was not ok");

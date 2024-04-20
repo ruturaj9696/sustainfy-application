@@ -155,7 +155,7 @@ const EnterData = ({ userid }) => {
 
     try {
       // Send data to the backend API
-      const response = await axios.post("http://localhost:3000/api/admin/daily-update", {
+      const response = await axios.post("https://sustainfy-application.onrender.com/api/admin/daily-update", {
         date,
         powergeneration: powerGeneration,
         userRef: userid, // Assuming useremail is passed correctly

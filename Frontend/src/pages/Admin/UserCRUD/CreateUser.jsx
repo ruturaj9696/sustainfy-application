@@ -29,7 +29,7 @@ const CreateUser = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "/api/auth/createuser",
+        "https://sustainfy-application.onrender.com/api/auth/createuser",
         formData
       );
       console.log(response.data);

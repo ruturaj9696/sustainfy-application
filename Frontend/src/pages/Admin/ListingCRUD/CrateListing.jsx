@@ -39,7 +39,7 @@ const CrateListing = (email) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("/api/listing/createlist", {
+      const response = await fetch("https://sustainfy-application.onrender.com/api/listing/createlist", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

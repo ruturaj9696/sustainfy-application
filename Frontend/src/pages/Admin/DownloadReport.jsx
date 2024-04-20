@@ -6,7 +6,7 @@ import axios from "axios"; // Import Axios for HTTP requests
 const DownloadReport = () => {
   const handleDownloadExcel = async () => {
     try {
-      const response = await axios.get("/api/admin/exportExcel", {
+      const response = await axios.get("https://sustainfy-application.onrender.com/api/admin/exportExcel", {
         responseType: "blob", // Set response type to blob for file download
       });
 

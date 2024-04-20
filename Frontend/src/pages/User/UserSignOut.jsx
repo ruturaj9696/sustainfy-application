@@ -24,7 +24,7 @@ export default function UserSignOut() {
   const handleSignOut = async () => {
     try {
       dispatch(signOutUserStart());
-      const res = await fetch("/api/auth/signoutuser");
+      const res = await fetch("https://sustainfy-application.onrender.com/api/auth/signoutuser");
       const data = await res.json();
       if (data.success === false) {
         dispatch(deleteUserFailure(data.message));

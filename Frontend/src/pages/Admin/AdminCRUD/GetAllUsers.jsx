@@ -18,7 +18,7 @@ const GetAllUsers = () => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get(
-          "/api/user/getAllUser"
+          "https://sustainfy-application.onrender.com/api/user/getAllUser"
         );
         setUsers(response.data);
       } catch (error) {

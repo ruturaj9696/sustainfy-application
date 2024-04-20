@@ -18,7 +18,7 @@ const AdminSignIn = () => {
 
     try {
       dispatch(signInStart()); // Dispatch action to indicate sign-in process has started
-      const response = await axios.post('/api/auth/signinadmin', {
+      const response = await axios.post('https://sustainfy-application.onrender.com/api/auth/signinadmin', {
         email,
         password
       });

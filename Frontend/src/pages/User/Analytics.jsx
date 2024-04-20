@@ -635,7 +635,7 @@ const Analytics = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/admin/getdaily-update/${userid}`
+          `https://sustainfy-application.onrender.com/api/admin/getdaily-update/${userid}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");

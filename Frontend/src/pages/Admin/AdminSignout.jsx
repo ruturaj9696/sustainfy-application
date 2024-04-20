@@ -13,7 +13,7 @@ export default function AdminSignout() {
   const handleSignOut = async () => {
     try {
       dispatch(signOutAdminStart());
-      const res = await fetch("/api/auth/signoutadmin");
+      const res = await fetch("https://sustainfy-application.onrender.com/api/auth/signoutadmin");
       const data = await res.json();
       if (data.success === false) {
         dispatch(deleteAdminFailure(data.message));
