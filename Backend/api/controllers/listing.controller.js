@@ -28,7 +28,6 @@ export const createList = async (req, res, next) => {
       netMeteringFile,
       moduleDatasheet,
       inverterDatasheet,
-      userRef,
     } = req.body;
 
     // Create a new instance of ListingData
@@ -56,7 +55,6 @@ export const createList = async (req, res, next) => {
       netMeteringFile,
       moduleDatasheet,
       inverterDatasheet,
-      userRef,
     });
 
     // Save the new list to the database

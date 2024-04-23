@@ -93,11 +93,7 @@ const ListingDataSchema = new mongoose.Schema(
     inverterDatasheet: {
       type: String,
       required: true,
-    },
-    userRef: {
-      type: String,
-      required: true,
-    },
+    }
   },
   { timestamps: true }
 );
